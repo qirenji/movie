@@ -1,0 +1,23 @@
+{
+  "name": "imooc",
+  "version": "0.0.1",
+  "authors": [
+    "Scott"
+  ],
+  "description": "movies",
+  "keywords": [
+    "movies"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.0"
+  }
+}
