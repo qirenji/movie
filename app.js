@@ -13,7 +13,7 @@ var logger = require('morgan')
 var serveStatic = require('serve-static')
 // 静态资源请求路径
 
-var port = process.env.PORT || 3001
+var port = process.env.PORT || 18002
 /*环境变量里的Port号优先*/
 var app = express()
 var fs = require('fs')
