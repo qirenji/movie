@@ -9,12 +9,11 @@ lib-cov
 
 pids
 logs
-public/build
-public/build/*
+public/dist/**
 results
 
 npm-debug.log
-node_modules
+node_modules/**
 *.graffle
 bower_components
 .DS_Store

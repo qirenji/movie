@@ -25,7 +25,7 @@ exports.detail = function(req, res) {
       .populate('reply.from reply.to', 'name')
       .exec(function(err, comments) {
         res.render('detail', {
-          title: 'imooc 详情页',
+          title: '详情页',
           movie: movie,
           comments: comments
         })

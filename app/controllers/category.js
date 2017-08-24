@@ -4,7 +4,7 @@ var Category = mongoose.model('Category')
 // admin new page
 exports.new = function(req, res) {
   res.render('category_admin', {
-    title: 'imooc 后台分类录入页',
+    title: '后台分类录入页',
     category: {}
   })
 }
@@ -31,7 +31,7 @@ exports.list = function(req, res) {
     }
 
     res.render('categorylist', {
-      title: 'imooc 分类列表页',
+      title: '分类列表页',
       catetories: catetories
     })
   })

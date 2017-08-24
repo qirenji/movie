@@ -1,0 +1,32 @@
+body {
+	margin-top: 80px;
+}
+
+.panel{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.search,.categories{
+	margin-top: 30px;
+	margin-left: 5%;
+}
+
+.title {
+		width: 90%;
+		margin-left: 5%; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.caption{
+	text-align: center;
+}
+
+.categories-count{
+	margin: 4%;
+}
+
+.dl-horizontal {
+	margin-top: 5%;
+}

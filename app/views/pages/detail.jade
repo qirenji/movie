@@ -3,7 +3,7 @@ extends ../layout
 block content
   .container
     .row
-      .col-md-7
+      .col-lg-7
         embed(src="#{movie.flash}", allowFullScreen="true", quality="high", width="720", height="600", align="middle", allowScriptAcess="always", type="application/x-shockwave-flash")
         .panel.panel-defatul
           .panel-heading
@@ -42,7 +42,7 @@ block content
                   button.btn.btn-primary(type='submit') 提交
                 else
                   a.navbar-link(href="#", data-toggle="modal", data-target="#signinModal") 登录后评论
-      .col-md-5
+      .col-lg-5
         .dl-horizontal
           dt 电影名字
           dd= movie.title
@@ -56,4 +56,4 @@ block content
           dd= movie.year
           dt 简介
           dd= movie.summary
-  script(src="/build/detail.min.js")
+  script(src="/dist/js/index.min.js")

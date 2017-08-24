@@ -3,21 +3,35 @@ extends ../layout
 block content
   .container
     .row
-      each cat in categories
-        .panel.panel-default
-          .panel-heading
-            h3
-              a(href='/results?cat=#{cat._id}&p=0') #{cat.name}
-          .panel-body
+      .panel.panel-default.col-sm-8.col-xs-12
+        .panel-heading
+          h3 全部电影
+        .panel-body
+          each cat in categories
             if cat.movies && cat.movies.length > 0
               each item in cat.movies
-                .col-md-2
-                  .thumbnail
+                .col-sm-3.col-xs-6
+                  .thumbnail.img-responsive.movie-list-wrap
                     a(href="/movie/#{item._id}")
                       if item.poster.indexOf('http') > -1
-                        img(src="#{item.poster}", alt="#{item.title}")
+                        img.movie-list(src="#{item.poster}", alt="#{item.title}")
                       else
-                        img(src="/upload/#{item.poster}", alt="#{item.title}")
-                    .caption
-                      h4 #{item.title}
-                      p: a.btn.btn-primary(href="/movie/#{item._id}", role="button") 观看预告片
+                        img.movie-list(src="/upload/#{item.poster}", alt="#{item.title}")
+                  .caption
+                    h4.title #{item.title}
+                    p: a.btn.btn-primary(href="/movie/#{item._id}", role="button") 观看预告片
+      .search-wrap.col-sm-3.hidden-xs.search
+        form(action="/results" method="GET")
+          div.input-group
+            input.form-control(type="text",placeholder="请输入关键字..." name="q")
+            span.input-group-btn
+              button.btn.btn-default(type="submit")
+                .span.glyphicon.glyphicon-search
+      .panel.panel-warning.col-sm-3.hidden-xs.categories
+        .panel-heading 全部分类
+        .panel-body.text-center
+          each cat in categories
+            if cat.movies && cat.movies.length > 0
+              a.btn.btn-info.categories-count(href="/results?cat=#{cat._id}&p=0") #{cat.name}
+            else
+              p.text-center 暂无分类

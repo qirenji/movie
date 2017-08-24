@@ -1,56 +1,51 @@
-.container
-  .row
-    .page-header.clearfix
-      h1= title
-      .col-md-4
-        small 重度科幻迷
-      .col-md-8
-        form(method='GET', action='/results')
-          .input-group.col-sm-4.pull-right
-            input.form-control(type='text', name='q')
-            span.input-group-btn
-              button.btn.btn-default(type='submit') 搜索
-.navbar.navbar-default.navbar-fixed-bottom
+.navbar.navbar-inverse.navbar-fixed-top
   .container
     .navbar-header
-      a.navbar-brand(href="/") 重度科幻迷
-    if user
-      p.navbar-text.navbar-right
-        span 欢迎您,#{user.name}
-        span &nbsp;|&nbsp;
-        a.navbar-link(href="/logout") 登出
-    else
-      p.navbar-text.navbar-right
-        a.navbar-link(href="#", data-toggle="modal", data-target="#signupModal") 注册
-        span &nbsp;|&nbsp;
-        a.navbar-link(href="#", data-toggle="modal", data-target="#signinModal") 登录
-#signupModal.modal.fade
-  .modal-dialog
-    .modal-content
-      form(method="POST", action="/user/signup")
-        .modal-header 注册
-        .modal-body
-          .form-group
-            label(for="signupName") 用户名
-            input#signupName.form-control(name="user[name]", type="text")
-          .form-group
-            label(for="signupPassword") 密码
-            input#signupPassword.form-control(name="user[password]", type="password")
-        .modal-footer
-          button.btn.btn-default(type="button", data-dismiss="modal") 关闭
-          button.btn.btn-success(type="submit") 提交
-#signinModal.modal.fade
-  .modal-dialog
-    .modal-content
-      form(method="POST", action="/user/signin")
-        .modal-header 登录
-        .modal-body
-          .form-group
-            label(for="signinName") 用户名
-            input#signinName.form-control(name="user[name]", type="text")
-          .form-group
-            label(for="signinPassword") 密码
-            input#signinPassword.form-control(name="user[password]", type="password")
-        .modal-footer
-          button.btn.btn-default(type="button", data-dismiss="modal") 关闭
-          button.btn.btn-success(type="submit") 提交
+      button.navbar-toggle.collapsed(type='button', data-toggle="collapse",data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href="/")
+        img(src="/images/logo.png",width="20",height="20")
+    .navbar-collapse.collapse(role="navigation")
+      ul.nav.navbar-nav
+        li.hidden-sm
+          a(href="/") 首页
+        li.dropdown
+          a.dropdown-toggle(href="#",data-toggle="dropdown",role="button",aria-haspopup="true",aria-expanded="false") 后台
+            span.caret
+          ul.dropdown-menu
+
+            li.dropdown-header 电影管理
+            li
+              a(href="/admin/movie/new") 电影录入
+            li
+              a(href="/admin/movie/list") 电影列表
+            li.divider(role="sparator")
+
+            li.dropdown-header 用户管理
+            li
+              a(href="#") 用户输入
+            li
+              a(href="/admin/user/list") 用户列表
+            li.dropdown-header 分类管理
+            li
+              a(href="/admin/category/new") 电影分类录入
+            li
+              a(href="/admin/category/list") 电影分类列表
+            li.divider(role="sparator")
+
+      ul.nav.navbar-nav.navbar-right
+        if user
+          li
+            a(href="#") 欢迎您: #{user.name}
+          li
+            a(href="/logout") 注销
+        else
+          li
+            a(href="/signin") 登录
+          li
+            a(href="/signup") 注册
+
+  

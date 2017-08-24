@@ -12,17 +12,16 @@ var logger = require('morgan')
 /*将请求信息打印在控制台，便于开发调试*/
 var serveStatic = require('serve-static')
 // 静态资源请求路径
-
 var port = process.env.PORT || 18002
 /*环境变量里的Port号优先*/
 var app = express()
 var fs = require('fs')
 
 var env = process.env.NODE_ENV ||'development'
-var dbUrl = 'mongodb://localhost:27017/imooc'
+var dbUrl = 'mongodb://localhost:27017/movie'
 
 if(env === 'development') {
-var dbUrl = 'mongodb://localhost:27017/imooc'
+var dbUrl = 'mongodb://localhost:27017/movie'
 }
 
 mongoose.connect(dbUrl)
@@ -50,8 +49,8 @@ var walk = function(path) {
 walk(models_path)
 
 
-app.set('views', './app/views/pages')
-app.set('view engine', 'jade')
+app.set("views","./app/views/pages");
+app.set('view engine', 'jade');
 //设置视图层路径 和 模版语言
 
 app.use(bodyParser.urlencoded({extended:true}))
@@ -85,6 +84,7 @@ app.listen(port)
 app.locals.moment = require('moment')
 //日期处理和解析
 app.use(serveStatic(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'node_modules')));
 //静态资源路径
 
 console.log('imooc started on port ' + port)

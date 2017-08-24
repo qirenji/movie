@@ -9,7 +9,7 @@ exports.index = function(req, res) {
     .populate({
       path: 'movies',
       select: 'title poster',
-      options: { limit: 6 }
+      options: { limit: 4 }
     })
     .exec(function(err, categories) {
       if (err) {
@@ -17,7 +17,7 @@ exports.index = function(req, res) {
       }
       // console.log(categories)
       res.render('index', {
-        title: 'imooc 首页',
+        title: '首页',
         categories: categories
       })
     })
@@ -28,7 +28,7 @@ exports.search = function(req, res) {
   var catId = req.query.cat
   var q = req.query.q
   var page = parseInt(req.query.p, 10) || 0
-  var count = 2
+  var count = 5
   var index = page * count
 
   if (catId) {
@@ -47,7 +47,7 @@ exports.search = function(req, res) {
         var results = movies.slice(index, index + count)
 
         res.render('results', {
-          title: 'imooc 结果列表页面',
+          title: '结果列表页面',
           keyword: category.name,
           currentPage: (page + 1),
           query: 'cat=' + catId,
@@ -66,7 +66,7 @@ exports.search = function(req, res) {
         var results = movies.slice(index, index + count)
 
         res.render('results', {
-          title: 'imooc 结果列表页面',
+          title: '结果列表页面',
           keyword: q,
           currentPage: (page + 1),
           query: 'q=' + q,

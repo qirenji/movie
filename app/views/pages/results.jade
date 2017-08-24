@@ -10,9 +10,9 @@ block content
           if movies && movies.length > 0
             each item in movies
               .col-md-2
-                .thumbnail
+                .thumbnail.movie-list-wrap
                   a(href="/movie/#{item._id}")
-                    img(src="#{item.poster}", alt="#{item.title}")
+                    img.movie-list(src="#{item.poster}", alt="#{item.title}")
                   .caption
                     h4 #{item.title}
                     p: a.btn.btn-primary(href="/movie/#{item._id}", role="button") 观看预告片
