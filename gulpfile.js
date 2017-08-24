@@ -25,7 +25,8 @@ var path = {
 
 // 将scss文件转成css文件并压缩
 gulp.task('styles', function() {
-  return plugins.rubySass(path.src.sass)
+  return gulp.src(path.src.sass)
+   .pipe(plugins.sass())
    .pipe(plugins.autoprefixer({            // 自动添加游览器前缀
       browsers: ['last 2 versions'],
       cascade: false
