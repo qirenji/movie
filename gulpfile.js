@@ -79,7 +79,7 @@ gulp.task('test', function() {
   return
 });
 
-gulp.task('build', gulpSequence('clean', 'styles', 'images', 'scripts');
+gulp.task('build', gulpSequence('clean', 'styles', 'images', 'scripts'));
 
 // 实时监听入口文件
 gulp.task('nodemon',function() {
