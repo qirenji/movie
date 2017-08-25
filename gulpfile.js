@@ -12,12 +12,12 @@ var path = {
     html: 'app/views/**',
     jshint: ['public/scripts/*.js','app/**/*.js','*.js','route/**'],
     scripts: 'public/scripts/**',
-    sass: './public/sass/**',
+    sass: 'public/sass/**',
     images: 'public/images/**',
     clean: 'public/dist/**'
   },
   dest: {
-    scripts: 'public/dist/js',
+    scripts: 'public/dist/scripts',
     sass: 'public/dist/sass',
     images: 'public/dist/images',
   }
@@ -69,8 +69,8 @@ gulp.task('watch', function() {
 });
 
 // 清除文件
-gulp.task('clean', function(cb) {
-  del(path.src.clean, cb());
+gulp.task('clean', function() {
+  return del(path.src.clean);
 });
 
 // 测试任务
@@ -80,7 +80,7 @@ gulp.task('test', function() {
   return
 });
 
-gulp.task('build', gulpSequence('clean', 'styles', 'images', 'scripts'));
+gulp.task('build', gulpSequence('clean', ['styles', 'images', 'scripts']));
 
 // 实时监听入口文件
 gulp.task('nodemon',function() {
@@ -88,11 +88,11 @@ gulp.task('nodemon',function() {
     ignore: ['README.md', 'node_modules/**', '.DS_Store']
   });
 
-  openUrl('http://localhost:3000');
+  openUrl('http://localhost:18002');
 });
 gulp.task('serve', function(){
     browserSync.init({
-    proxy: 'http://localhost:3000',
+    proxy: 'http://localhost:18002',
     browser: 'chrome',
     port: 8000
   });
