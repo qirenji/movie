@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Category = mongoose.model('Category')
 
-// admin new page
+// 分类主页
 exports.new = function(req, res) {
   res.render('category_admin', {
     title: '后台分类录入页',
@@ -9,7 +9,7 @@ exports.new = function(req, res) {
   })
 }
 
-// admin post movie
+// 分类存储
 exports.save = function(req, res) {
   var _category = req.body.category
   var category = new Category(_category)
@@ -23,7 +23,7 @@ exports.save = function(req, res) {
   })
 }
 
-// catelist page
+// 分类列表页
 exports.list = function(req, res) {
   Category.fetch(function(err, catetories) {
     if (err) {

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Comment = mongoose.model('Comment')
 
-// comment
+// 评论保存
 exports.save = function(req, res) {
   var _comment = req.body.comment
   var movieId = _comment.movie

@@ -2,7 +2,7 @@ var mongoose = require('mongoose')
 var Movie = mongoose.model('Movie')
 var Category = mongoose.model('Category')
 
-// index page
+// 主页
 exports.index = function(req, res) {
   Category
     .find({})
@@ -23,7 +23,7 @@ exports.index = function(req, res) {
     })
 }
 
-// search page
+// 搜索页
 exports.search = function(req, res) {
   var catId = req.query.cat
   var q = req.query.q

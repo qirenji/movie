@@ -7,7 +7,7 @@ var _ = require('underscore')
 var fs = require('fs')
 var path = require('path')
 
-// detail page
+// 详情页
 exports.detail = function(req, res) {
   var id = req.params.id
 
@@ -33,18 +33,18 @@ exports.detail = function(req, res) {
   })
 }
 
-// admin new page
+// 后台录入页
 exports.new = function(req, res) {
   Category.find({}, function(err, categories) {
     res.render('admin', {
-      title: 'imooc 后台录入页',
+      title: '后台录入页',
       categories: categories,
       movie: {}
     })
   })
 }
 
-// admin update page
+// 后台更新页
 exports.update = function(req, res) {
   var id = req.params.id
 
@@ -52,7 +52,7 @@ exports.update = function(req, res) {
     Movie.findById(id, function(err, movie) {
       Category.find({}, function(err, categories) {
         res.render('admin', {
-          title: 'imooc 后台更新页',
+          title: '后台更新页',
           movie: movie,
           categories: categories
         })
@@ -61,7 +61,7 @@ exports.update = function(req, res) {
   }
 }
 
-// admin poster
+// 保存海报
 exports.savePoster = function(req, res, next) {
   var posterData = req.files.uploadPoster
   var filePath = posterData.path
@@ -85,7 +85,7 @@ exports.savePoster = function(req, res, next) {
   }
 }
 
-// admin post movie
+// 保存电影
 exports.save = function(req, res) {
   var id = req.body.movie._id
   var movieObj = req.body.movie
@@ -147,7 +147,7 @@ exports.save = function(req, res) {
   }
 }
 
-// list page
+// 列表页
 exports.list = function(req, res) {
   Movie.find({})
     .populate('category', 'name')
@@ -157,13 +157,13 @@ exports.list = function(req, res) {
       }
 
       res.render('list', {
-        title: 'imooc 列表页',
+        title: '列表页',
         movies: movies
       })
     })
 }
 
-// list page
+// 删除电影
 exports.del = function(req, res) {
   var id = req.query.id
 
