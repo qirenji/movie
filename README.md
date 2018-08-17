@@ -25,7 +25,7 @@ gulp -----打包后运行
 - [x] 电影评论
 - [x] 电影分类管理（分类录入、修改）
 ## 预览
-在线预览地址 👉 http://movie.qirenji.com/
+在线预览地址 👉 http://movie.qirenji.com/ [停止维护]
 
 电影首页
 
@@ -111,8 +111,8 @@ gulp -----打包后运行
 
 
 ## About
-关于我: http://www.qirenji.info/about
+关于我: http://www.qirenji.com/about
 
 GitHub: https://github.com/qirenji/
 
-E-mail: lyf@qirenji.com
+E-mail: work@qirenji.com
